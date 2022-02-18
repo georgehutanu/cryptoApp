@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react"
 
 import { ITopCoinsPaginationProps } from "./interfaces"
-import useDebounce from "../../customHooks/useDebounce";
+import useDebounce from "../../customHooks/useDebounce"
 
 
 export default ({ page, search, setSearch, setPerPage, setPage, maxPage }: ITopCoinsPaginationProps) => {
 
+    const defaultPageSelected = {
+        first: false,
+        current: false,
+    }
+
     const [intermediatePage, setIntermediatePage] = useState(1)
+    const [pageSelected, setPageSelected] = useState({
+        first: false,
+        current: true,
+    })
+
     const debouncedPage = useDebounce(intermediatePage, 1000)
 
     useEffect(() => {
@@ -15,8 +25,11 @@ export default ({ page, search, setSearch, setPerPage, setPage, maxPage }: ITopC
 
     return <div className="top-coins__pagination">
         <div className="top-coins__pagination__page">
-            <a className="top-coins__pagination__page--content"
-               onClick={() => setPage(1)}>
+            <a className={`top-coins__pagination__page--content`}
+               onClick={() => {
+                   setPage(1)
+                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+               }}>
                 {page > 2 && 1}
 
             </a>
@@ -24,24 +37,36 @@ export default ({ page, search, setSearch, setPerPage, setPage, maxPage }: ITopC
                onClick={() => setSearch((prev: boolean) => !prev)}>
                 {page > 2 && '...'}
             </a>
-            <a className="top-coins__pagination__page--content"
-               onClick={() => page > 1 && setPage(page - 1)}>
+            <a className={`top-coins__pagination__page--content `}
+               onClick={() => {
+                   page > 1 && setPage(page - 1)
+                   setPageSelected(() => Object({...defaultPageSelected, [page === 1 ? 'first' : 'current']: true}))
+               }}>
                 {page > 1 && page - 1}
             </a>
-            <a className="top-coins__pagination__page--content"
-               onClick={() => setPage(page)}>
+            <a className={`top-coins__pagination__page--content ${pageSelected.current && 'top-coins__pagination__page--content--active'}`}
+               onClick={() => {
+                   setPage(page)
+                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+               }}>
                 {page}
             </a>
-            <a className="top-coins__pagination__page--content"
-               onClick={() => {page < maxPage && setPage(page + 1)}}>
+            <a className={`top-coins__pagination__page--content `}
+               onClick={() => {
+                   page < maxPage && setPage(page + 1)
+                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+               }}>
                 {page < maxPage && page + 1}
             </a>
             <a className={`top-coins__pagination__page--content ${search && 'top-coins__pagination__page--content--hidden'}`}
-               onClick={() => setSearch((prev: boolean) => !prev)}>
+               onClick={() => {setSearch((prev: boolean) => !prev)}}>
                 {page < maxPage && '...'}
             </a>
-            <a className="top-coins__pagination__page--content"
-               onClick={() => setPage(maxPage)}>
+            <a className={`top-coins__pagination__page--content `}
+               onClick={() => {
+                   setPage(maxPage)
+                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+               }}>
                 {page < maxPage && maxPage}
             </a>
             <input
