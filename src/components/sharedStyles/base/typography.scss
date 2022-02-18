@@ -1,0 +1,78 @@
+@import '../utils/variables';
+
+* {
+  color: $text-primary-color;
+  font-family: Inter, sans-serif;
+}
+
+.top-info-bar {
+  font-size: $content-small-font;
+  font-weight: 500;
+  color: $text-secondary-color;
+
+  &__list--element--value{
+    color: $text-highlight-color;
+  }
+}
+
+.login-section {
+  &__form {
+    &--group {
+      &--input::placeholder {
+        color: $text-primary-color;
+      }
+
+      &--label {
+        font-size: $content-font;
+      }
+    }
+    &--button {
+      font-weight: 600;
+      font-size: $content-font;
+    }
+  }
+}
+
+.title-section {
+  &__title {
+    &--content {
+      font-size: $title-font;
+    }
+    &--subtitle {
+      font-size: $content-font;
+    }
+  }
+}
+
+.coin, .top-coins {
+  font-size: $content-font;
+  font-weight: 600;
+
+  &__field__content--change-24h {
+    &--up {
+      color: $text-highlight-positive-color;
+    }
+    &--down{
+      color: $text-highlight-negative-color;
+    }
+  }
+}
+
+.header {
+  font-size: $content-font;
+}
+
+.trending-coins {
+  font-size: $content-font;
+  font-weight: 500;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+
+  &__more--content {
+    font-size: $content-small-font;
+    color: $text-highlight-color;
+  }
+}

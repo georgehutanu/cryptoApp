@@ -1,0 +1,21 @@
+@import './base';
+@import './utils';
+
+@import '../../pages/HomePage/home-page';
+@import '../../pages/UserDashboard/user-dashboard';
+@import '../../components/TopInfoBar/top-info-bar';
+@import '../../components/TitleSection/title-section';
+@import '../../components/TopSection/top-section';
+@import '../../components/LoginSection/login-section';
+@import '../../components/TitleSection/title-section';
+@import '../../components/TopCoins/top-coins';
+@import '../../components/TrendingCoins/trending-coins';
+@import '../../components/TrendingCoin/trending-coin';
+@import '../../components/Coin/coin';
+
+
+
+body {
+  background: #141E30;
+  background: linear-gradient(to top, #243B55, #141E30);
+}
