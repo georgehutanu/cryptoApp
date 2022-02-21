@@ -1,3 +1,5 @@
+@import "../src/components/sharedStyles/utils/variables";
+
 .top-coins{
   width: 100%;
   display: flex;
@@ -15,14 +17,20 @@
       gap: 1rem;
 
       &--content {
+        padding: .7rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: .6rem;
         cursor: pointer;
+        transition: all .4s;
+
+        &:hover {
+          background: $text-secondary-color;
+        }
 
         &--active {
           background: $text-highlight-color;
-        }
-
-        &:hover {
-          text-decoration: underline;
         }
       }
 

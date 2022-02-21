@@ -18,6 +18,10 @@
     justify-content: flex-start;
     width: 20rem;
 
+    &__content--name {
+      margin: 0 0 .5rem 0;
+    }
+
     &--image {
       height: 3rem;
       width: 3rem;

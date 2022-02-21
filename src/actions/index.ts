@@ -6,3 +6,9 @@ export const saveMarketCapPercentage24h = (marketCap: IMarketCapActionPayload) =
     type: Actions.SAVE_VALUE,
     payload: marketCap
 })
+
+export const loadCoin = (coinID: string) => ({
+    type: Actions.LOAD_COIN,
+    payload: coinID
+})
+

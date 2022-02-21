@@ -28,9 +28,9 @@ export default () => {
             </div>
             {smallViewTrending ?
                 trendingCoins.map((coin: { item: ITrendingCoin }, index: number) =>
-                    (index < 3) && <TrendingCoin coin={coin} index={index}/>) :
+                    (index < 3) && <TrendingCoin coin={coin} key={index}/>) :
                 trendingCoins.map((coin: { item: ITrendingCoin }, index: number) =>
-                    <TrendingCoin coin={coin} index={index}/>)
+                    <TrendingCoin coin={coin} key={index}/>)
             }
         </div> :
         <></>

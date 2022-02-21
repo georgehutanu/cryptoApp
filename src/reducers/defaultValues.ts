@@ -3,3 +3,5 @@ export const marketCapDefaultValues = {
     marketCap: 0,
     cryptos: 0
 }
+
+export const loadedCoin = 'bitcoin'

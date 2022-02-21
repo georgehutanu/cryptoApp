@@ -3,6 +3,8 @@
 
 @import '../../pages/HomePage/home-page';
 @import '../../pages/UserDashboard/user-dashboard';
+@import '../../pages/CoinPage/coin-page';
+
 @import '../../components/TopInfoBar/top-info-bar';
 @import '../../components/TitleSection/title-section';
 @import '../../components/TopSection/top-section';
@@ -12,10 +14,11 @@
 @import '../../components/TrendingCoins/trending-coins';
 @import '../../components/TrendingCoin/trending-coin';
 @import '../../components/Coin/coin';
-
+@import '../../components/SearchBar/search-bar';
+@import '../../components/CoinChart/coin-chart';
+@import '../../components/CoinInfo/coin-info';
 
 
 body {
-  background: #141E30;
-  background: linear-gradient(to top, #243B55, #141E30);
+  background: linear-gradient(to top, #243B55, #141E30) no-repeat;
 }

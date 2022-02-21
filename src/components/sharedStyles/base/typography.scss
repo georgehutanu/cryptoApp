@@ -1,8 +1,11 @@
 @import '../utils/variables';
 
 * {
-  color: $text-primary-color;
   font-family: Inter, sans-serif;
+}
+
+body {
+  color: #fff;
 }
 
 .top-info-bar {
@@ -10,7 +13,7 @@
   font-weight: 500;
   color: $text-secondary-color;
 
-  &__list--element--value{
+  &__list--element--value {
     color: $text-highlight-color;
   }
 }
@@ -19,16 +22,18 @@
   &__form {
     &--group {
       &--input::placeholder {
-        color: $text-primary-color;
+        color: $text-secondary-color;
       }
 
       &--label {
         font-size: $content-font;
       }
     }
+
     &--button {
       font-weight: 600;
       font-size: $content-font;
+      color: #fff;
     }
   }
 }
@@ -37,23 +42,36 @@
   &__title {
     &--content {
       font-size: $title-font;
+      &--link {
+        text-decoration: none;
+        color: $text-primary-color;
+      }
     }
+
     &--subtitle {
       font-size: $content-font;
     }
   }
 }
 
+.coin__field{
+  text-decoration: none;
+  color: $text-primary-color;
+}
+
 .coin, .top-coins {
   font-size: $content-font;
   font-weight: 600;
 
-  &__field__content--change-24h {
-    &--up {
-      color: $text-highlight-positive-color;
-    }
-    &--down{
-      color: $text-highlight-negative-color;
+  &__field {
+    &__content--change-24h {
+      &--up {
+        color: $text-highlight-positive-color;
+      }
+
+      &--down {
+        color: $text-highlight-negative-color;
+      }
     }
   }
 }
@@ -74,5 +92,38 @@
   &__more--content {
     font-size: $content-small-font;
     color: $text-highlight-color;
+  }
+}
+
+.trending-coin__field__content {
+  text-decoration: none;
+  color: $text-primary-color;
+}
+
+.top-coins__pagination__page--input {
+  color: #fff;
+}
+
+.search-bar {
+  &__input--content {
+    color: #fff;
+
+    &::placeholder {
+      color: $text-secondary-color;
+    }
+  }
+
+  &__results {
+
+    &--result {
+      text-decoration: none;
+
+      &--content {
+        color: #fff;
+        font-size: $content-small-font;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    }
   }
 }

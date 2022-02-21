@@ -5,10 +5,10 @@ import { marketCapDefaultValues } from "./defaultValues"
 
 
 export default (state: IMarketCapActionPayload = marketCapDefaultValues, action: Action<IMarketCapActionPayload>) => {
-    const {type, payload} = action
+    const { type, payload } = action
     switch (type) {
         case Actions.SAVE_VALUE:
-            return {...payload}
+            return { ...payload }
         default:
             return state
     }

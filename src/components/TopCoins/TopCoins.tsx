@@ -27,7 +27,7 @@ export default () => {
     if (coins)
         return <div className="top-coins">
             <TopCoinsPagination page={page} search={search} setPage={setPage} setSearch={setSearch}
-                                setPerPage={setPerPage} maxPage={Math.round(cryptos / perPage)}/>
+                                setPerPage={setPerPage} maxPage={Math.round(cryptos / perPage)} perPage={perPage}/>
             <div className="top-coins__header">
                 <div className="top-coins__header__field">
                     <p className="top-coins__header__field__content">Name</p>
@@ -45,9 +45,9 @@ export default () => {
                     <p className="top-coins__header__field__content">Circulating Supply</p>
                 </div>
             </div>
-            {coins.map((coin: ICoin, index: number) => <Coin coin={coin} index={index}/>)}
+            {coins.map((coin: ICoin, index: number) => <Coin coin={coin} key={index}/>)}
             <TopCoinsPagination page={page} search={search} setPage={setPage} setSearch={setSearch}
-                                setPerPage={setPerPage} maxPage={Math.round(cryptos / perPage)}/>
+                                setPerPage={setPerPage} maxPage={Math.round(cryptos / perPage)} perPage={perPage}/>
         </div>
     else
         return <></>
