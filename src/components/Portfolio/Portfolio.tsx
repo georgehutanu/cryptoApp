@@ -15,11 +15,9 @@ export default () => {
     const [total, setTotal] = useState<number>(0)
 
     const userPortfolio: IPortfolioCoin[] = useSelector((root: RootState) => root.portfolio)
-
     useEffect(() => {
         (async () => {
             const result = userPortfolio && await Promise.all(userPortfolio.map(({ id }: IPortfolioCoin) => axios.get(coinGeckoURLs.coinInfo(id!))))
-            console.log(result)
             result && setPortfolioCoins(result.map(({ data }) => ({
                 id: data.id,
                 name: data.name,
@@ -28,12 +26,23 @@ export default () => {
                 image: data.image?.small
             })))
         })()
+        
     }, [userPortfolio])
 
+    useEffect(() => {
+        setTotal(0)
+        userPortfolio.forEach((portfolioCoin : IPortfolioCoin, index: number) => {
+            portfolioCoin.amount && portfolioCoins && portfolioCoins[index] && setTotal(prev => prev + portfolioCoin.amount * portfolioCoins[index].price);
+        })
+    },[portfolioCoins])
+
+
+    
     return portfolioCoins ? <div className="portfolio">
         <div className="portfolio__top-section">
             <p className="portfolio__top-section__title">Portfolio</p>
-            <p className="portfolio__top-section__total">Total &nbsp;<span>${transformLargeNumberInReadableNumber(total) ?? 0}</span></p>
+            <p className="portfolio__top-section__total">Total &nbsp;
+            <span>${transformLargeNumberInReadableNumber(total) ?? 0}</span></p>
         </div>
         <div className="portfolio__header">
             <p className="portfolio__header__field">Name</p>
@@ -44,7 +53,10 @@ export default () => {
         {portfolioCoins && portfolioCoins.map(({ id, name, price, symbol, image }: IPortfolioCoin, index: number) => {
             const coin: IPortfolioCoin | undefined = userPortfolio && userPortfolio.find((portfolioCoin: IPortfolioCoin) => portfolioCoin.id === id)
             const coinWorth = coin && coin.amount && coin.amount * Number(price)
-            return <PortfolioCoin id={id} amount={coin?.amount} name={name} price={coinWorth} key={index} setTotal={setTotal} symbol={symbol} image={image}/>
+            
+            return <PortfolioCoin id={id} amount={coin?.amount} 
+                    name={name} price={coinWorth} key={index} 
+                    symbol={symbol} image={image}/>
         })}
     </div> : <></>
 }

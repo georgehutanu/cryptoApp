@@ -10,18 +10,13 @@ import { RootState } from "../../reducers"
 import { addCoinToPortfolio, removeCoinFromPortfolio } from "../../actions"
 
 
-export default ({ amount, name, price, setTotal, symbol, image, id }: IPortfolioCoin) => {
+export default ({ amount, name, price, symbol, image, id }: IPortfolioCoin) => {
     const [coinAmountForPortfolio, setCoinAmountForPortfolio] = useState(0)
 
-    const userPortfolio: IPortfolioCoin[] = useSelector((root: RootState) => root.portfolio)
     const userID = useSelector((root: RootState) => root.user.userID)
 
     const dispatch = useDispatch()
     const {getAccessTokenSilently} = useAuth0()
-
-    useEffect(() => {
-        setTotal && price && setTotal(prev => prev + price)
-    }, [userPortfolio, price])
 
 
     return <div className="portfolio-coin">
@@ -38,9 +33,7 @@ export default ({ amount, name, price, setTotal, symbol, image, id }: IPortfolio
                const token = await getAccessTokenSilently()
                const response = await axios.post('http://localhost:4000/addPortfolioCoin',
                    { coinID: id, userID, amount: coinAmountForPortfolio },
-                   {
-                       headers: { authorization: `Bearer ${token}` }
-                   })
+                   {headers: { authorization: `Bearer ${token}` }})
                dispatch(addCoinToPortfolio([{ id: id, amount: coinAmountForPortfolio }]))
                response.status === 200 && setCoinAmountForPortfolio(0)
            }}>
@@ -51,13 +44,11 @@ export default ({ amount, name, price, setTotal, symbol, image, id }: IPortfolio
                const token = await getAccessTokenSilently()
                const response = await axios.post('http://localhost:4000/removePortfolioCoin',
                    { coinID: id, userID, amount: coinAmountForPortfolio },
-                   {
-                       headers: { authorization: `Bearer ${token}` }
-                   })
+                   {headers: { authorization: `Bearer ${token}` }})
                dispatch(removeCoinFromPortfolio([{ id, amount: coinAmountForPortfolio }]))
                response.status === 200 && setCoinAmountForPortfolio(0)
            }}>
-            -
+            {coinAmountForPortfolio ? "-" : "x"}
         </p>
         <input className="coin__field--input" type="text" placeholder="Amount" value={coinAmountForPortfolio === 0 ? '' : coinAmountForPortfolio} onChange={e => setCoinAmountForPortfolio(Number(e.target.value))}/>
     </div>
