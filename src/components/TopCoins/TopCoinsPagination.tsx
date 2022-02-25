@@ -28,7 +28,7 @@ export default ({ page, search, setSearch, setPerPage, setPage, maxPage, perPage
             <a className={`top-coins__pagination__page--content`}
                onClick={() => {
                    setPage(1)
-                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+                   setPageSelected(() => Object({ ...defaultPageSelected, current: true }))
                }}>
                 {page > 2 && 1}
             </a>
@@ -39,32 +39,34 @@ export default ({ page, search, setSearch, setPerPage, setPage, maxPage, perPage
             <a className={`top-coins__pagination__page--content `}
                onClick={() => {
                    page > 1 && setPage(page - 1)
-                   setPageSelected(() => Object({...defaultPageSelected, [page === 1 ? 'first' : 'current']: true}))
+                   setPageSelected(() => Object({ ...defaultPageSelected, [page === 1 ? 'first' : 'current']: true }))
                }}>
                 {page > 1 && page - 1}
             </a>
             <a className={`top-coins__pagination__page--content top-coins__pagination__page--content${pageSelected.current && '--active'}`}
                onClick={() => {
                    setPage(page)
-                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+                   setPageSelected(() => Object({ ...defaultPageSelected, current: true }))
                }}>
                 {page}
             </a>
             <a className={`top-coins__pagination__page--content `}
                onClick={() => {
                    page < maxPage && setPage(page + 1)
-                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+                   setPageSelected(() => Object({ ...defaultPageSelected, current: true }))
                }}>
                 {page < maxPage && page + 1}
             </a>
             <a className={`top-coins__pagination__page--content top-coins__pagination__page--content${search && '--hidden'}`}
-               onClick={() => {setSearch((prev: boolean) => !prev)}}>
+               onClick={() => {
+                   setSearch((prev: boolean) => !prev)
+               }}>
                 {page < maxPage - 1 && '...'}
             </a>
             <a className={`top-coins__pagination__page--content `}
                onClick={() => {
                    setPage(maxPage)
-                   setPageSelected(() => Object({...defaultPageSelected, current: true}))
+                   setPageSelected(() => Object({ ...defaultPageSelected, current: true }))
                }}>
                 {page < maxPage - 1 && maxPage}
             </a>

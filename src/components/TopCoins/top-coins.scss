@@ -7,6 +7,17 @@
   gap: 3rem;
   padding-bottom: 5rem;
 
+  &__watchlist {
+    background-color: $button-primary-color;
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+
   &__pagination {
     display: flex;
     gap: 3rem;
@@ -72,12 +83,19 @@
       display: flex;
       width: 20rem;
 
-      &:not(:nth-child(1)) {
-        justify-content: flex-start;
+      &__content {
+        width: fit-content;
+        padding: 0 2rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+        background-color: rgba($button-standard-color, .4);
       }
 
-      &:nth-child(1){
-        justify-content: center;
+      &--small {
+        width: 9rem;
       }
     }
   }

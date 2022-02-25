@@ -3,8 +3,3 @@ export interface IMarketCapActionPayload {
     marketCap: number,
     cryptos: number
 }
-
-export interface ILoadCoin {
-    coinID: string
-}
-

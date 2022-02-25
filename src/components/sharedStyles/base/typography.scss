@@ -19,29 +19,29 @@ body {
 }
 
 .login-section {
-  &__form {
-    &--group {
-      &--input::placeholder {
-        color: $text-secondary-color;
-      }
 
-      &--label {
-        font-size: $content-font;
-      }
-    }
+  &__greet {
+    font-size: $content-small-font;
 
-    &--button {
-      font-weight: 600;
+    & span {
       font-size: $content-font;
-      color: #fff;
+      font-weight: 700;
     }
   }
+
+  &__button {
+    font-weight: 600;
+    font-size: $content-font;
+    color: #fff;
+  }
 }
+
 
 .title-section {
   &__title {
     &--content {
       font-size: $title-font;
+
       &--link {
         text-decoration: none;
         color: $text-primary-color;
@@ -54,9 +54,17 @@ body {
   }
 }
 
-.coin__field{
+.coin__field {
   text-decoration: none;
   color: $text-primary-color;
+
+  &--input {
+    color: $text-primary-color;
+
+    &::placeholder {
+      color: $text-secondary-color;
+    }
+  }
 }
 
 .coin, .top-coins {
@@ -125,5 +133,135 @@ body {
         font-weight: 600;
       }
     }
+  }
+}
+
+.coin-info {
+  font-size: $content-small-font;
+  color: $text-secondary-color;
+  font-weight: 700;
+
+  &__main-data {
+    &__name--content {
+      color: $text-primary-color;
+      font-size: $title-font;
+    }
+
+    &__price--content span {
+      color: $text-highlight-color;
+      font-size: $title-font;
+    }
+
+    &__ath--content span, &__ath-date--content span {
+      color: $text-highlight-color;
+      font-size: $content-font;
+    }
+  }
+
+  &__secondary-data {
+    &__scores--developer--content span, &__scores--community--content span {
+      color: $text-highlight-color;
+      font-size: $content-font;
+    }
+
+    &__market-info {
+      &__market-cap {
+        &--quantum--content span {
+          color: $text-highlight-color;
+          font-size: $content-font;
+        }
+      }
+
+      &__market-cap-24h--quantum--content {
+        &--up {
+          color: $text-highlight-positive-color;
+        }
+
+        &--down {
+          color: $text-highlight-negative-color;
+        }
+      }
+
+      &__supply {
+        &-total, &-max, &-circulating {
+          &--quantum--content span {
+            color: $text-highlight-color;
+            font-size: $content-font;
+          }
+        }
+      }
+    }
+  }
+}
+
+.add-user {
+  &__title {
+    font-size: $title-font;
+    font-weight: 700;
+  }
+
+  &__form {
+    &__group {
+      &__input {
+        color: $text-primary-color;
+
+        &::placeholder {
+          color: rgba($text-primary-color, .6);
+        }
+      }
+
+      &__label {
+        color: $text-secondary-color;
+        font-size: $content-small-font;
+      }
+    }
+
+    &__button {
+      color: $text-primary-color;
+    }
+  }
+}
+
+.select-view {
+  &__title {
+    font-size: $title-font;
+    font-weight: 900;
+  }
+
+  &__option, &__option--active {
+    font-size: $content-small-font;
+    font-weight: 600;
+  }
+}
+
+.portfolio {
+  &__top-section {
+    &__title {
+      font-size: $title-font;
+      font-weight: 700;
+    }
+    &__total {
+      font-size: $content-font;
+      font-weight: 700;
+
+      & span {
+        font-size: $title-font;
+        color: $text-highlight-positive-color;
+      }
+    }
+  }
+
+  &__header__field {
+    font-size: $content-small-font;
+    font-weight: 500;
+  }
+}
+
+.portfolio-coin {
+  font-size: $content-font;
+  font-weight: 700;
+
+  &__field {
+  color: $text-primary-color;
   }
 }

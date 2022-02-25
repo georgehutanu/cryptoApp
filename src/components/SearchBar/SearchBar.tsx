@@ -42,9 +42,9 @@ export default () => {
                    }}/>
         </div>
         {inputValue && <div className="search-bar__results">
-            {inputValue && searchResults.map((coin: ISearchCoin) =>
+            {inputValue && searchResults.map((coin: ISearchCoin, index: number) =>
                 <a href={`http://localhost:3000/coin/${coin.symbol}`}
-                   className="search-bar__results--result">
+                   className="search-bar__results--result" key={index}>
                     <p className="search-bar__results--result--content">{coin.market_cap_rank}</p>
                     <div className="search-bar__results--result--content">
                         <img src={coin.thumb} alt="" className="search-bar__results--result--image--content"/>

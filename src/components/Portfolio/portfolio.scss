@@ -1,0 +1,30 @@
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  &__top-section {
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__header {
+    width: 70rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+
+    &__field {
+      width: fit-content;
+      padding: 0 2rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      background-color: rgba($button-standard-color, .4);
+    }
+  }
+}

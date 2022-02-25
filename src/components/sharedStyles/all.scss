@@ -4,6 +4,7 @@
 @import '../../pages/HomePage/home-page';
 @import '../../pages/UserDashboard/user-dashboard';
 @import '../../pages/CoinPage/coin-page';
+@import '../../pages/AddUser/add-user';
 
 @import '../../components/TopInfoBar/top-info-bar';
 @import '../../components/TitleSection/title-section';
@@ -15,8 +16,11 @@
 @import '../../components/TrendingCoin/trending-coin';
 @import '../../components/Coin/coin';
 @import '../../components/SearchBar/search-bar';
+@import '../../components/AddUserForm/add-user-form';
 @import '../../components/CoinChart/coin-chart';
 @import '../../components/CoinInfo/coin-info';
+@import '../../components/Portfolio/portfolio';
+@import '../../components/PortfolioCoin/portfolio-coin';
 
 
 body {

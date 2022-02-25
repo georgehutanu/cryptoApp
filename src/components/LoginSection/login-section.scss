@@ -1,55 +1,32 @@
 .login-section {
-  &__form {
+  display: flex;
+  flex-direction: column;
+
+  &__greet {
+
+  }
+
+  &__buttons {
     display: flex;
+    gap: 2rem;
+  }
+
+  &__button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    width: fit-content;
+    min-width: 8rem;
+    height: 4rem;
+    padding: 0 1rem;
+    border: none;
+    background-color: $button-primary-color;
+    border-radius: 1rem;
+    cursor: pointer;
 
-    &--group {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 5rem;
-
-      &--label {
-        text-align: center;
-        transition: all .4s;
-        opacity: 0;
-        height: 0;
-        transform: translateY(-2rem);
-      }
-
-      &--input {
-        height: 4rem;
-        border-radius: 1rem;
-        background: rgba($button-primary-color, .3);
-        border: none;
-
-        &::placeholder {
-          transition: all .4s;
-          text-align: center;
-        }
-
-        &:focus + .login-section__form--group--label {
-          opacity: 1;
-          transform: translateY(-7rem);
-        }
-
-        &:focus {
-          &::placeholder {
-            opacity: 0;
-          }
-        }
-      }
-    }
-
-    &--button {
-      width: 10rem;
-      height: 4rem;
-      border: none;
-      background-color: $button-primary-color;
-      border-radius: 1rem;
-      //color: #fff;
+    &--logout {
+      background-color: rgba($text-highlight-negative-color, .7) !important;
     }
   }
 }

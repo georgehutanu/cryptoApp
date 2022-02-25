@@ -50,7 +50,7 @@ export default ({ prices, dates }: { prices: number[], dates: number[] }) => {
     return <>
         <div id="chart">
             <div id="chart-timeline">
-                <ReactApexChart options={options} series={options.series} type="area" height={400} width={1200}/>
+                <ReactApexChart options={options} series={options.series} type="line" height={400} width={1200}/>
             </div>
         </div>
     </>

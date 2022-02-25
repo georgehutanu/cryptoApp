@@ -10,12 +10,14 @@ import { coinGeckoURLs } from "../../utils/coinGeckoApiURLs"
 export default () => {
     const [trendingCoins, setTrendingCoins] = useState<{ item: ITrendingCoin }[]>()
     const [smallViewTrending, setSmallViewTrending] = useState<boolean>(true)
+
     useEffect(() => {
         (async () => {
             const response = await axios.get(coinGeckoURLs.trending)
             setTrendingCoins(response.data.coins)
         })()
     }, [smallViewTrending])
+
     return trendingCoins ?
         <div className="trending-coins">
             <div className="trending-coins__title">

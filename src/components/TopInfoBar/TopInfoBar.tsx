@@ -12,7 +12,7 @@ import transformLargeNumberInReadableNumber from "../../utils/transformLargeNumb
 export default () => {
     const [cryptos, setCryptos] = useState<number>(0)
     const [marketCap, setMarketCap] = useState<number>(0)
-    const [dominance, setDominance] = useState<IDominance>({btc: 0, eth: 0})
+    const [dominance, setDominance] = useState<IDominance>({ btc: 0, eth: 0 })
     const [volume24h, setVolume24h] = useState<number>(0)
     const [ethGas, setEthGas] = useState<number>(0)
 
@@ -21,7 +21,7 @@ export default () => {
     useEffect(() => {
         (async () => {
             const response = await axios.get(coinGeckoURLs.global)
-            if(response.status === 200) {
+            if (response.status === 200) {
                 setCryptos(response.data.data.active_cryptocurrencies)
                 setDominance(response.data.data.market_cap_percentage)
                 setMarketCap(response.data.data.total_market_cap.usd)
@@ -34,7 +34,8 @@ export default () => {
             dispatch(saveMarketCapPercentage24h({
                 marketCapPercentage24h: response.data.data.market_cap_change_percentage_24h_usd,
                 marketCap: response.data.data.total_market_cap.usd,
-                cryptos: response.data.data.active_cryptocurrencies}))
+                cryptos: response.data.data.active_cryptocurrencies
+            }))
         })()
     }, [])
 

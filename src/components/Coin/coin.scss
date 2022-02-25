@@ -18,8 +18,63 @@
     justify-content: flex-start;
     width: 20rem;
 
-    &__content--name {
-      margin: 0 0 .5rem 0;
+    &--input {
+      width: 7rem;
+      border-radius: 1rem;
+      border: none;
+      background-color: rgba($button-primary-color, .3);
+      text-align: center;
+      height: 3.4rem;
+
+      &::placeholder {
+        text-align: center;
+      }
+    }
+
+    &--portfolio {
+      display: flex;
+      width: 20rem;
+      justify-content: space-around;
+    }
+
+    &--small {
+      width: 9rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & svg.star {
+        fill: white;
+
+        &--active {
+          fill: $text-highlight-color;
+        }
+      }
+    }
+
+    &__content {
+      &--portfolio {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: .6rem 1rem;
+        border-radius: .4rem;
+
+        &--positive {
+          background-color: $text-highlight-positive-color;
+        }
+
+        &--negative {
+          background-color: $text-highlight-negative-color
+        }
+      }
+
+      &--name {
+        margin: 0 0 .5rem 0;
+      }
     }
 
     &--image {
